@@ -8,12 +8,13 @@ public class ItemManager : MonoBehaviour
     [SerializeField] public GameObject[] itemsArray;
     [SerializeField] private Sprite[] itemSprites;
     [SerializeField] private GameObject activeSprite;
+    [SerializeField] private GameObject activeItem;
     
     private PlayerControls playerControls;
 
-    private Vector2 pickAxeTransform = new Vector2(.41f, .1799998f);
-    private Vector2 torchTransform = new Vector2(.49f, -0.02f);
-    private Vector2 gunTransform = new Vector2(0.7f, -0.09f);
+    private Vector2 pickAxeTransform = new Vector2(.0f, .0f);
+    private Vector2 torchTransform = new Vector2(.09f, -0.18f);
+    private Vector2 gunTransform = new Vector2(0.32f, -0.25f);
 
     private void Awake() {
         playerControls = new PlayerControls();
@@ -44,7 +45,7 @@ public class ItemManager : MonoBehaviour
 
         itemsArray[0].GetComponent<Outline>().enabled = true;
         activeSprite.GetComponent<SpriteRenderer>().sprite = itemSprites[0];
-        activeSprite.transform.localPosition = pickAxeTransform;
+        activeItem.transform.localPosition = pickAxeTransform;
     }
 
     private void ItemSlotTwo() {
@@ -55,7 +56,7 @@ public class ItemManager : MonoBehaviour
 
         itemsArray[1].GetComponent<Outline>().enabled = true;
         activeSprite.GetComponent<SpriteRenderer>().sprite = itemSprites[1];
-        activeSprite.transform.localPosition = torchTransform;
+        activeItem.transform.localPosition = torchTransform;
     }
 
     private void ItemSlotThree() {
@@ -66,6 +67,6 @@ public class ItemManager : MonoBehaviour
 
         itemsArray[2].GetComponent<Outline>().enabled = true;
         activeSprite.GetComponent<SpriteRenderer>().sprite = itemSprites[2];
-        activeSprite.transform.localPosition = gunTransform;
+        activeItem.transform.localPosition = gunTransform;
     }
 }
